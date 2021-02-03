@@ -117,8 +117,13 @@ def send_state_tweet(states, driver):
     send_tweet('\n'.join(get_state_tweet(get_state_debts(states,driver))))
 
 def send_tweet(tweet):
-    auth = tweepy.OAuthHandler("9Usj4sqG39FlX1RZyYFZzl24s", "TT6ZHWQCyd0GgxVUFiXrbV7FX0dCYRDZiZr7ABIZj3XoDczQtW")
-    auth.set_access_token("1352810525885775872-WTSqrskq0sC36TlCnHZD9kDEY4TNTc", "6k0NueduhU0W1ampqLSUd0GVOn6zGfVRVFsvH8QgxkSeq")
+    api_key = '9Usj4sqG39FlX1RZyYFZzl24s'
+    api_key_secret = 'TT6ZHWQCyd0GgxVUFiXrbV7FX0dCYRDZiZr7ABIZj3XoDczQtW'
+    access_token = '1352810525885775872-WTSqrskq0sC36TlCnHZD9kDEY4TNTc'
+    access_token_secret = '6k0NueduhU0W1ampqLSUd0GVOn6zGfVRVFsvH8QgxkSeq'
+
+    auth = tweepy.OAuthHandler(api_key, api_key_secret)
+    auth.set_access_token(access_token, access_token_secret)
     api = tweepy.API(auth)
     api.update_status(status = (tweet))
 
